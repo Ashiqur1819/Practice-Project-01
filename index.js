@@ -16,8 +16,14 @@ app.get("/", (req, res) => {
 })
 
 app.post("/create", (req, res) => {
-    fs.writeFile(`./files/${req.body.filename.split(" ").join("")}.txt`, req.body.description, ()=> {
+    fs.writeFile(`./files/${req.body.filename.split(" ").join("")}.txt`, req.body.description, (err)=> {
         res.redirect("/")
+    })
+})
+
+app.get("/files/:filename", (req, res) => {
+    fs.readFile(`./files/${req.params.filename}`, "utf-8", (err, filedata) => {
+        res.render("show", {filename: req.params.filename, filedata: filedata})
     })
 })
 

@@ -19,24 +19,24 @@
           <textarea
             style="background-color: rgb(66, 65, 65)"
             class="w-full mt-5 px-5 py-3 rounded-md outline-none text-white"
-            name=""
+            name="description"
             id=""
+     
           ></textarea>
           <input
             type="submit"
             value="Submit Details"
             class="bg-cyan-500 px-5 py-3 rounded-md text-white mt-5 cursor-pointer"
-            name="description"
           />
         </form>
       </div>
       <div class="bg-zinc-800 p-10 rounded-md mt-10 flex gap-4 flex-wrap">
         <% if (files.length > 0) { %> <% files.forEach((file) => { %>
-        <div class="bg-zinc-700 rounded-md min-w-72 text-white p-4">
+        <div class="bg-zinc-700 rounded-md min-w-64 text-white p-4">
           <h2 class="text-3xl"><%= file %></h2>
 
           <div class="flex items-center justify-between underline mt-3">
-            <a href="" class="text-cyan-500">Read More</a>
+            <a href="/files/<%= file %>" class="text-cyan-500">Read More</a>
             <a href="" class="text-zinc-400">Rename File</a>
           </div>
         </div>
