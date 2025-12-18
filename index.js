@@ -27,6 +27,22 @@ app.get("/files/:filename", (req, res) => {
     })
 })
 
+app.get("/rename/:filename", (req, res) => {
+    res.render("rename", {filename: req.params.filename})
+})
+
+app.post("/rename", (req, res) => {
+    fs.rename(`./files/${req.body.oldname}`, `./files/${req.body.newname}`, (err) => {
+        res.redirect("/")
+    })
+})
+
+app.get("/delete/:filename", (req, res) => {
+    fs.unlink(`./files/${req.params.filename}`, () => {
+        res.redirect("/")
+    })
+})
+
 app.listen(3000, () => {
     console.log("Server is running on port", 3000)
 })
