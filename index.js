@@ -9,7 +9,8 @@ app.set("view engine", "ejs")
 app.use(express.static(path.join(__dirname, "public")))
 
 app.get("/", (req, res) => {
-    res.send("Server is running")
+    // res.send("Server is running")
+    res.render("index")
 })
 
 app.listen(3000, () => {
